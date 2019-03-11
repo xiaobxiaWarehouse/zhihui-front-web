@@ -1,0 +1,213 @@
+@import "~themes/vars";
+
+:global {
+
+  .homeTitleimg {
+    padding: 30px 55px 70px 55px;
+  }
+  
+  .homeTitletag {
+    position: relative;
+    margin-top: 4px;
+    font-size: 18px;
+    color: #3a3a3a;
+  }
+  
+  .homeTitletagName {
+    display: inline-block;
+    margin-left: 23px;
+  }
+  
+  .layout-button {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .ant-spin-container,
+  .ant-spin-nested-loading {
+    height: 100%;
+  }
+
+  .homeWrap {
+    width: 100%;
+    height: 100%;
+    background: url(../../public/home/background-home.png) no-repeat 100% 100%;
+    background-size: cover;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .homeFlex {
+    height: ~"calc(100% - 178px)";
+  }
+
+  .menuitem {
+    margin: 0 auto;
+    width: 256px;
+    height: 256px;
+    padding: 30px 0;
+    & .label {
+      font-size: 24px;
+      color: @home-font-color;
+      margin: 0 auto;
+      line-height: 1;
+    }
+    & .icon {
+      width: 141px;
+      height: 141px;
+      display: block;
+      margin: 0 auto 23px;
+      border-radius: 70px;
+    }
+  }
+
+  .col-menuitem {
+    text-align: center;
+    &:nth-child(odd) {
+      .menuitem {
+        & .icon {
+          box-shadow: 0 10px 40px rgba(252,201,26,0.5289);
+        }
+        &.menuitem-yuyue {
+          & .icon {
+            background: url(../../public/home/yellow/yuyue.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+
+        &.menuitem-yuding {
+          & .icon {
+            background: url(../../public/home/yellow/yuding.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-ruzhu {
+          & .icon {
+            background: url(../../public/home/yellow/ruzhu.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-huli {
+          & .icon {
+            background: url(../../public/home/yellow/yuyue.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-dangan {
+          & .icon {
+            background: url(../../public/home/yellow/dangan.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-huodong {
+          & .icon {
+            background: url(../../public/home/yellow/huodong.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-shuju {
+          & .icon {
+            background: url(../../public/home/yellow/shuju.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-statistics {// 暂无黄色图标
+          & .icon {
+            background: url(../../public/home/brown/statistics.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-shezhi {
+          & .icon {
+            background: url(../../public/home/yellow/shezhi.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-logout {
+          & .icon {
+            background: url(../../public/home/yellow/logout.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+      }
+    }
+    &:nth-child(even) {
+      & .icon {
+        box-shadow: 0 10px 40px rgba(106,57,6,0.5289);
+      }
+      .menuitem {
+        &.menuitem-yuyue {
+          & .icon {
+            background: url(../../public/home/brown/yuyue.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+
+        &.menuitem-yuding {
+          & .icon {
+            background: url(../../public/home/brown/yuding.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-ruzhu {
+          & .icon {
+            background: url(../../public/home/brown/ruzhu.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-huli {
+          & .icon {
+            background: url(../../public/home/brown/huli.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-dangan {
+          & .icon {
+            background: url(../../public/home/brown/dangan.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-huodong {
+          & .icon {
+            background: url(../../public/home/brown/huodong.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-shuju {// 暂无棕色图标 且图标尺寸异常
+          & .icon {
+            background: url(../../public/home/yellow/shuju.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-statistics {
+          & .icon {
+            background: url(../../public/home/brown/statistics.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-shezhi {
+          & .icon {
+            background: url(../../public/home/brown/shezhi.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+        &.menuitem-logout {
+          & .icon {
+            background: url(../../public/home/brown/logout.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 10px;
+  float: left;
+  // padding: 20px 0 98px 20px;
+}
+

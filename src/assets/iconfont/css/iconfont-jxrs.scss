@@ -1,0 +1,183 @@
+$__iconfont__data: map-merge(if(global_variable_exists('__iconfont__data'), $__iconfont__data, ()), (
+	"iconfont-jxrs": (
+		"icon-add": "\ea01",
+		"icon-admin": "\ea02",
+		"icon-alignment": "\ea03",
+		"icon-bars": "\ea04",
+		"icon-check": "\ea05",
+		"icon-close": "\ea06",
+		"icon-dashboard": "\ea07",
+		"icon-delete": "\ea08",
+		"icon-document": "\ea09",
+		"icon-down": "\ea0a",
+		"icon-edit": "\ea0b",
+		"icon-eraser": "\ea0c",
+		"icon-exclamation-circle": "\ea0d",
+		"icon-eye-disable": "\ea0e",
+		"icon-eye": "\ea0f",
+		"icon-form": "\ea10",
+		"icon-home": "\ea11",
+		"icon-huli": "\ea12",
+		"icon-huxi": "\ea13",
+		"icon-jiankang": "\ea14",
+		"icon-layout": "\ea15",
+		"icon-left": "\ea16",
+		"icon-me": "\ea17",
+		"icon-monitor": "\ea18",
+		"icon-mouse": "\ea19",
+		"icon-move": "\ea1a",
+		"icon-notification": "\ea1b",
+		"icon-password": "\ea1c",
+		"icon-permission": "\ea1d",
+		"icon-pinggu": "\ea1e",
+		"icon-quality": "\ea1f",
+		"icon-rectangle": "\ea20",
+		"icon-right": "\ea21",
+		"icon-role": "\ea22",
+		"icon-save": "\ea23",
+		"icon-search": "\ea24",
+		"icon-select-chuangwei": "\ea25",
+		"icon-settlement": "\ea26",
+		"icon-smruzhu": "\ea27",
+		"icon-smyuding": "\ea28",
+		"icon-smyuyue": "\ea29",
+		"icon-smzaiyuan": "\ea2a",
+		"icon-smzhaohu": "\ea2b",
+		"icon-task": "\ea2c",
+		"icon-taskset": "\ea2d",
+		"icon-teamleader": "\ea2e",
+		"icon-test": "\ea2f",
+		"icon-tijian": "\ea30",
+		"icon-tiwen": "\ea31",
+		"icon-tools": "\ea32",
+		"icon-untying": "\ea33",
+		"icon-up": "\ea34",
+		"icon-upload": "\ea35",
+		"icon-user": "\ea36",
+		"icon-xinlv": "\ea37",
+		"icon-xinxi": "\ea38",
+		"icon-xuetang": "\ea39",
+		"icon-xueya": "\ea3a",
+		"icon-zoom-in": "\ea3b",
+		"icon-zoom-out": "\ea3c",
+		"icon-zoom": "\ea3d"
+	)
+));
+
+
+$create-font-face: true !default; // should the @font-face tag get created?
+
+// should there be a custom class for each icon? will be .filename
+$create-icon-classes: true !default; 
+
+// what is the common class name that icons share? in this case icons need to have .icon.filename in their classes
+// this requires you to have 2 classes on each icon html element, but reduced redeclaration of the font family
+// for each icon
+$icon-common-class: 'jxrs-icon' !default;
+
+// if you whish to prefix your filenames, here you can do so.
+// if this string stays empty, your classes will use the filename, for example
+// an icon called star.svg will result in a class called .star
+// if you use the prefix to be 'icon-' it would result in .icon-star
+$icon-prefix: 'jxrs-' !default; 
+
+// helper function to get the correct font group
+@function iconfont-group($group: null) {
+  @if (null == $group) {
+    $group: nth(map-keys($__iconfont__data), 1);
+  }
+  @if (false == map-has-key($__iconfont__data, $group)) {
+    @warn 'Undefined Iconfont Family!';
+    @return ();
+  }
+  @return map-get($__iconfont__data, $group);
+}
+
+// helper function to get the correct icon of a group
+@function iconfont-item($name) {
+  $slash: str-index($name, '/');
+  $group: null;
+  @if ($slash) {
+    $group: str-slice($name, 0, $slash - 1);
+    $name: str-slice($name, $slash + 1);
+  } @else {
+    $group: nth(map-keys($__iconfont__data), 1);
+  }
+  $group: iconfont-group($group);
+  @if (false == map-has-key($group, $name)) {
+    @warn 'Undefined Iconfont Glyph!';
+    @return '';
+  }
+  @return map-get($group, $name);
+}
+
+// complete mixing to include the icon
+// usage:
+// .my_icon{ @include iconfont('star') }
+@mixin iconfont($icon) {
+  &:before{
+    font-family: "iconfont-jxrs";
+    font-style: normal;
+    font-weight: 400;
+    content: iconfont-item($icon);
+  }
+}
+
+// creates the font face tag if the variable is set to true (default)
+@if $create-font-face == true{
+  @font-face {
+    font-family: "iconfont-jxrs";
+    src: url('../font/iconfont-jxrs.eot'); /* IE9 Compat Modes */
+    src: url('../font/iconfont-jxrs.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../font/iconfont-jxrs.woff') format('woff'), /* Pretty Modern Browsers */
+      url('../font/iconfont-jxrs.ttf')  format('truetype'), /* Safari, Android, iOS */
+      url('../font/iconfont-jxrs.svg') format('svg'); /* Legacy iOS */
+  }
+}
+
+// creates icon classes for each individual loaded svg (default)
+@if $create-icon-classes == true{
+  .#{$icon-common-class}{
+    font-family: "iconfont-jxrs";
+    font-style: normal;
+    font-weight: 400;
+    
+    @each $family, $map in $__iconfont__data {
+      @each $icon, $content in $map {
+        &.#{$icon-prefix}#{$icon}{
+          &:before{
+            content: iconfont-item($icon);
+          }
+        }
+      }
+    }
+  }
+}
+
+.#{$icon-common-class} {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+}
+
+.#{$icon-common-class}-md {
+  font-size: inherit;
+}
+
+.#{$icon-common-class}-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+.#{$icon-common-class}-2x {
+  font-size: 2em;
+}

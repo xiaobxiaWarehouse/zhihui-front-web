@@ -1,0 +1,156 @@
+@import "~themes/vars";
+
+:global {
+
+  .formLogin {
+    position: fixed;
+    left: 50%;
+    top: 39.75%;
+    //transform: translate(-50%, -50%);
+    margin-left: -200px;
+    margin-top: -157px;
+
+    width: 400px;
+    height: 314px;
+
+    .logo {
+      margin: 0 auto 20px auto;
+      width: 270px;
+      text-align: center;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      span {
+        vertical-align: text-bottom;
+        font-size: 16px;
+        text-transform: uppercase;
+        display: inline-block;
+      }
+    }
+    .appName {
+      position: relative;
+      margin: 0 auto 25px auto;
+      width: 215px;
+      text-align: center;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+    .appVersion {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 12px;
+      width: 32px;
+      color: #FFF;
+    }
+    .jigouName {
+      margin: 0 auto;
+      width: 282px;
+      text-align: center;
+      color: rgb(106,57,6);
+    }
+    .loginTitle {
+      font-size: 24px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .formWrapper {
+      width: 400px;
+      height: 314px;
+      padding: 20px 0;
+
+      & .ant-form-item {
+        margin-bottom: 28px !important;
+      }
+
+      & .ant-form-item-with-help {
+        margin-bottom: 4px !important;
+      }
+      & .ant-form-explain, & .ant-form-extra {
+        margin-top: 3px !important;
+      }
+    }
+
+    .loginInput {
+      width: 400px;
+      height: 50px;
+      border-radius: 6px;
+      background-color: @component-background;
+
+      &.ant-input-affix-wrapper .ant-input-prefix {
+        left: 13px;
+        color: @border-color;
+      }
+
+      &.ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 40px;
+      }
+      &.ant-input-affix-wrapper .ant-input:not(:last-child) {
+        padding-right: 40px;
+      }
+      & .ant-input {
+        font-size: 18px;
+        border-radius: 6px;
+        border-color: @border-color;
+        .placeholder(@border-color);
+      }
+    }
+
+    .ant-form-explain {
+      font-size: 14px;
+    }
+    .resetButton {
+      position: absolute;
+      right: 0;
+      top: -15px;
+      border: none;
+      padding: 0;
+    }
+    .loginButton {
+      box-sizing: border-box;
+      height: 50px;
+      width: 400px;
+      font-size: 18px;
+      border-radius: 6px;
+      color: @body-background;
+      background-color: @btn-bg;
+      border: none;
+
+      &:hover, &:focus {
+        color: @body-background;
+        background-color: @btn-bg;
+      }
+    }
+  }
+
+  .ant-spin-container,
+  .ant-spin-nested-loading {
+    height: 100%;
+  }
+
+  .loginWrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url(../../public/background.png) no-repeat 100% 100%;
+    background-size: cover;
+
+    & .footer {
+      position: absolute;
+      bottom: 0;
+      background: transparent;
+      color: @body-background;
+      font-size: 16px;
+      height: 22px;
+      line-height: 22px;
+      margin-bottom: 50px;
+    }
+  }
+}

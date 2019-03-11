@@ -1,0 +1,75 @@
+@import "~themes/vars";
+
+.nav {
+  height: 100%;
+  background-color: #F8F8F8;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu {
+  height: 100%;
+  :global {
+    .ant-menu {
+      height: 100%;
+      border-right: none;
+      background-color: #F8F8F8;
+      .ant-menu-item {
+        font-size: 16px;
+        color: @font-color;
+      }
+      .ant-menu-item:hover {
+        color: #6A3906;
+      }
+      .ant-menu-item-selected {
+        background-color: #FCCB1D !important;
+        font-size: 16px;
+        color: #6A3906;
+
+        & > a, & > a:hover {
+          color: #6A3906;
+        }
+      }
+
+      .ant-menu-submenu-title {
+        font-size: 16px;
+        color: @font-color;
+      }
+      .ant-menu-item-selected {
+        background-color: #F8F8F8;
+        &:after {
+          border-right: none !important;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  background-color: #fff;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 13px 16px 0 16px;
+
+  :global {
+    & .ant-form-item-label label {
+      font-size: 18px;
+    }
+  }
+}
+
+.datePicker {
+  width: 100%;
+}
+
+.arrow {
+  height: 36px;
+}
+
+:global {
+  .ant-select {
+    width: 100%;
+  }
+}
+

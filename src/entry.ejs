@@ -1,0 +1,219 @@
+<% htmlWebpackPlugin.options.headScripts = htmlWebpackPlugin.options.headScripts || [] %>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Keywords" content="养老,护理,健康">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>养老照护系统</title>
+
+  <% if (htmlWebpackPlugin.files.favicon) { %>
+    <link href="<%= htmlWebpackPlugin.files.favicon %>" rel="shortcut icon" />
+  <% } %>
+  <style>
+    .appLoading {
+      position:absolute;
+      width: 100%;
+      height: 100%;
+      left:0;
+      top: 0;
+      bottom: 0;
+      background: #faf1f1 none no-repeat 100% 100%;
+      /*background-size: cover;*/
+      /*background-image: url(/background.png);*/
+      opacity:1;
+      filter:alpha(opacity=80);
+      z-index:10000;
+    }
+
+    .appLoadingIcon {
+      position: absolute;
+      cursor: wait;
+      width: auto;
+      height: 57px;
+      line-height: 55px;
+      padding-left: 55px;
+      padding-right: 10px;
+      font-size: 16px;
+      background: #fff url(/loading.svg) no-repeat scroll 4px 0;
+      vertical-align: middle;
+      box-sizing: border-box;
+      font-family: "PingFangSC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  </style>
+  <script>
+    window.PointerEvent = void 0;
+
+
+    //获取浏览器页面可见高度和宽度
+    var _PageHeight = document.documentElement.clientHeight,
+      _PageWidth = document.documentElement.clientWidth;
+    //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为57px）
+    var _LoadingTop = _PageHeight > 57 ? (_PageHeight - 57) / 2 : 0,
+      _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+    //在页面未加载完毕之前显示的loading Html自定义内容
+    var _LoadingHtml = '<div id="loadingDiv" class="appLoading" style="height:' + _PageHeight + 'px;">' +
+      '<div class="appLoadingIcon" style="left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px;">系统加载中，请等待</div>' +
+      '</div>';
+    //呈现loading效果
+    document.write(_LoadingHtml);
+
+    // window.onload = function () {
+    //    var loadingMask = document.getElementById('loadingDiv');
+    //    loadingMask.parentNode.removeChild(loadingMask);
+    // };
+
+    //监听加载状态改变
+    document.onreadystatechange = completeLoading;
+
+    //加载状态为complete时移除loading效果
+    function completeLoading() {
+      if (document.readyState == "complete") {
+        var loadingMask = document.getElementById('loadingDiv');
+        loadingMask.parentNode.removeChild(loadingMask);
+      }
+    }
+  </script>
+
+  <% if (!htmlWebpackPlugin.options.unsupportedBrowser) { %>
+
+  <!--[if gte IE 9]>
+  <% for (item of htmlWebpackPlugin.options.headScripts) { %>
+  <script type="text/javascript" src="<%= item %>"></script>
+  <% } %>
+  <![endif]-->
+
+  <!--[if !IE]><!-->
+  <% for (item of htmlWebpackPlugin.options.headScripts) { %>
+  <script type="text/javascript" src="<%= item %>"></script>
+  <% } %>
+  <!--<![endif]-->
+
+  <% } %>
+
+  <% for (key in htmlWebpackPlugin.files.css) { %>
+  <link href="<%= htmlWebpackPlugin.files.css[key] %>" rel="stylesheet">
+  <% } %>
+
+</head>
+<body>
+
+<% if (!htmlWebpackPlugin.options.unsupportedBrowser) { %>
+
+<div id="root" style="height: 100%; width: 100%;"></div>
+
+<!--[if gte IE 9]>
+<% for (key in htmlWebpackPlugin.files.chunks) { %>
+<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[key].entry %>"></script>
+<% } %>
+<![endif]-->
+
+<!--[if !IE]><!-->
+<% for (key in htmlWebpackPlugin.files.chunks) { %>
+<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[key].entry %>"></script>
+<% } %>
+<!--<![endif]-->
+
+<% } else { %>
+
+<style>
+  .unsupported-browser { display: block; }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .ie-alert-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    background: #fff none no-repeat center center;
+    background-size: cover;
+    background-image: url(/background.png);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+      src='/background.png',
+      sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+      src='/background.png',
+      sizingMethod='scale');
+    z-index: 9999;
+  }
+  .ie-alert {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 419px;
+    height: 260px;
+    background: #FFFFFF;
+    border: 1px solid #e2e2e0;
+  }
+  .ie-alert .title{
+    padding-top: 63px;
+    font-size: 16px;
+    text-align: center;
+    color: #3f68a9;
+    padding-bottom: 43px;
+  }
+  .ie-alert .ie img {
+    width: 60px;
+  }
+  .ie-alert div img {
+    width: 52px;
+  }
+  .ie-body {
+    display: block;
+    margin-left: 47px;
+  }
+  .ie-body div {
+    display: inline-block;
+    margin-left:20px;
+  }
+  .ie-body p {
+    font-size: 12px;
+    color: #000000;
+    text-align: center;
+  }
+</style>
+<div class="unsupported-browser">
+  <div class="ie-alert-wrap">
+    <div class="ie-alert">
+      <p class="title">请用ie9以上，或其他主流浏览器</p>
+      <div class="ie-body">
+        <div class="ie">
+          <img src="/IE.png"/>
+          <p>IE</p>
+        </div>
+        <div>
+          <img src="/Firefox.png"/>
+          <p>Firefox</p>
+        </div>
+        <div>
+          <img src="/chrome.png"/>
+          <p>Chrome</p>
+        </div>
+        <div>
+          <img src="/Safari.png"/>
+          <p>Safari</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% } %>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+@import '../../themes/mixin';
+@import '../../themes/vars';
+
+@header-height: 58px;
+
+:global {
+  .header {
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    .navGroup {
+      height: 80px;
+      padding: 23px 28px 15px;
+      background-color: #fff;
+      position: relative;
+    }
+
+    .navGroupHolder {
+      display: none;
+      height: 80px;
+    }
+
+    &.navOpen {
+      .navGroup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: auto;
+      }
+
+      .navGroupHolder {
+        display: block;
+      }
+    }
+
+    .filter {
+      padding: 8px 28px 14px;
+
+      & .ant-form-item {
+        margin-bottom: 15px;
+
+        & label {
+          font-size: 18px;
+        }
+        & .ant-input {
+          height: 36px;
+          font-size: 16px;
+          padding: 7px 11px;
+          border-radius: 6px;
+        }
+      }
+    }
+
+    .headerInput {
+      //border-color: #FCCB1D;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 28px;
+      color: @font-color;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .navBtn {
+      float: right;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 3px 0;
+    }
+
+    .ant-btn-primary {
+      font-size: 18px;
+      height: 36px;
+    }
+
+    .navMenuItem {
+      margin-top: 14px;
+      padding: 20px 0 20px 49px;
+    }
+
+    .menuitem {
+      margin: 0 auto;
+      width: 160px;
+      height: auto;
+      padding: 20px 0;
+
+      & .label {
+        font-size: 18px;
+        color: @home-font-color;
+        margin: 0 auto;
+        line-height: 1;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      & .icon {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 6px 0 0;
+      }
+    }
+
+    .col-menuitem {
+      text-align: left;
+      .menuitem.menuitem-sm {
+        & .icon {
+          box-shadow: none;
+          border-radius: 0;
+        }
+      }
+      &:nth-child(odd) {
+        .menuitem.menuitem-sm {
+          & .icon {
+            background: url(../../public/header/yellow.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-child(even) {
+        .menuitem.menuitem-sm {
+          & .icon {
+            background: url(../../public/header/brown.png) no-repeat 100% 100%;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+  }
+}

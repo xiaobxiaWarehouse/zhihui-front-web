@@ -1,0 +1,158 @@
+[
+  {
+    "id": 1,
+    "icon": "yuyue",
+    "name": "预约业务",
+    "label": "预约业务",
+    "path": "/yuyue/list",
+    "url": "/yuyue/list",
+    "code": ["sys:yuyue:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 2,
+    "icon": "yuding",
+    "name": "预定业务",
+    "label": "预定业务",
+    "path": "/yuding/list",
+    "url": "/yuding/list",
+    "code": ["sys:yuding:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 3,
+    "icon": "ruzhu",
+    "name": "入住业务",
+    "label": "入住业务",
+    "path": "/ruzhu/list",
+    "url": "/ruzhu/list",
+    "code": ["sys:shenqing:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 4,
+    "icon": "huli",
+    "name": "护理业务",
+    "label": "护理业务",
+    "path": "/huli/list",
+    "url": "/huli/list",
+    "code": ["sys:hulijilu:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 5,
+    "icon": "dangan",
+    "name": "健康档案",
+    "label": "健康档案",
+    "path": "/dangan/list",
+    "url": "/dangan/list",
+    "code": ["sys:dangan:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 6,
+    "icon": "huodong",
+    "name": "文娱活动",
+    "label": "文娱活动",
+    "path": "/huodongjilu/list",
+    "url": "/huodongjilu/list",
+    "code": ["sys:huodongjilu:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 7,
+    "icon": "shuju",
+    "name": "智能监测",
+    "label": "智能监测",
+    "path": "/monitor/list",
+    "url": "/monitor/list",
+    "code": ["sys:shuju:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 8,
+    "icon": "statistics",
+    "name": "统计分析",
+    "label": "统计分析",
+    "path": "/statistics",
+    "url": "/statistics",
+    "code": ["sys:baobiao:view"],
+    "children": [],
+    "sideMenu": true
+  },
+  {
+    "id": 9,
+    "icon": "shezhi",
+    "name": "系统设置",
+    "label": "系统设置",
+    "path": "/profile/mima",
+    "url": "/profile/mima",
+    "code": [
+      "sys:profile:url:mima",
+      "sys:user:view",
+      "sys:role:view",
+      "sys:priv:url:list",
+      "sys:chuangwei:view"
+    ],
+    "children": [
+      {
+        "id": 2,
+        "name": "修改个人密码",
+        "label": "修改个人密码",
+        "path": "/profile/mima",
+        "url": "/profile/mima",
+        "code": ["sys:profile:url:mima"],
+        "children": [],
+        "sideMenu": false
+      },
+      {
+        "id": 3,
+        "name": "管理员工",
+        "label": "管理员工",
+        "path": "/yuangong/list",
+        "url": "/yuangong/list",
+        "code": ["sys:user:view"],
+        "children": [],
+        "sideMenu": false
+      },
+      {
+        "id": 4,
+        "name": "管理角色",
+        "label": "管理角色",
+        "path": "/role/list",
+        "url": "/role/list",
+        "code": ["sys:role:view"],
+        "children": [],
+        "sideMenu": false
+      },
+      {
+        "id": 5,
+        "name": "管理权限",
+        "label": "管理权限",
+        "path": "/priv/list",
+        "url": "/priv/list",
+        "code": ["sys:priv:url:list"],
+        "children": [],
+        "sideMenu": false
+      },
+      {
+        "id": 6,
+        "name": "管理房间",
+        "label": "管理房间",
+        "path": "/chuangwei/list",
+        "url": "/chuangwei/list",
+        "code": ["sys:chuangwei:view"],
+        "children": [],
+        "sideMenu": false
+      }
+    ],
+    "sideMenu": true
+  }
+]

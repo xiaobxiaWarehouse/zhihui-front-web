@@ -1,0 +1,105 @@
+@import "~themes/vars";
+
+.record {
+  margin-top: 12px;
+  :global {
+    .ant-form-item {
+      margin-bottom: 0px;
+      display: flex;
+      font-size: 18px;
+    }
+    .ant-form-item-label {
+      label {
+        font-size: 18px;
+      }
+    }
+
+    .justify {
+      text-align: justify;
+    }
+  }
+}
+
+.recordItem {
+  padding: 10px 28px;
+  background-color: #fff;
+  margin-bottom: 15px;
+  :global {
+    .ant-form-horizontal {
+      .ant-form-item {
+        // height: 39px !important;
+        margin-bottom: 0px !important;
+      }
+    }
+  }
+}
+
+.chuzhiSj {
+  font-size: 20px;
+  font-weight: bold;
+  color: @font-color;
+}
+
+.chuzhiDz {
+  font-size: 18px;
+  font-weight: bold;
+  color: @font-color;
+}
+
+
+:global {
+  .ant-collapse.xinxiBg {
+    background-color: transparent;
+    font-size: 18px;
+    border: none;
+    text-align: justify;
+    & > .ant-collapse-item {
+      border-bottom: none;
+    }
+    & > .ant-collapse-item > .ant-collapse-header {
+      padding: 0 40px 0 0;
+      line-height: 39.9999px;
+      overflow: hidden;
+      word-break: break-all;
+    }
+    & > .ant-collapse-item > .ant-collapse-header .arrow {
+      left: auto;
+      right: 12px;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    & > .ant-collapse-item > .ant-collapse-content {
+      border-top: none;
+    }
+
+    & > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box {
+      padding: 0;
+      line-height: 39.9999px;
+    }
+
+    & > .ant-collapse-item > .ant-collapse-header .arrow {
+      transform: rotate(90deg);
+    }
+    & > .ant-collapse-item > .ant-collapse-header[aria-expanded="true"] .arrow {
+      transform: rotate(-90deg);
+    }
+
+    &.disabled {
+      & > .ant-collapse-item > .ant-collapse-header {
+        padding: 0;
+        line-height: 39.9999px;
+        overflow: hidden;
+      }
+      & > .ant-collapse-item > .ant-collapse-header .arrow {
+        display: none;
+      }
+
+      & > .ant-collapse-item > .ant-collapse-content {
+        display: none;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,70 @@
+@import "~themes/vars";
+
+:global {
+
+  .formMima {
+    .formWrapper {
+      width: 400px;
+      height: 314px;
+      padding: 20px 0;
+
+      & .ant-form-item {
+        margin-bottom: 28px;
+      }
+
+      & .ant-form-item-with-help {
+        margin-bottom: 4px;
+      }
+      & .ant-form-explain, & .ant-form-extra {
+        margin-top: 3px;
+      }
+    }
+
+    .loginInput {
+      width: 400px;
+      height: 50px;
+      border-radius: 6px;
+      background-color: @component-background;
+
+      &.ant-input-affix-wrapper .ant-input-prefix {
+        left: 13px;
+        color: @border-color;
+      }
+
+      &.ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 40px;
+      }
+      &.ant-input-affix-wrapper .ant-input:not(:last-child) {
+        padding-right: 40px;
+      }
+      & .ant-input {
+        font-size: 18px;
+        border-radius: 6px;
+        border-color: @border-color;
+        .placeholder(@border-color);
+      }
+    }
+
+    .ant-form-explain {
+      font-size: 14px;
+    }
+    .resetButton {
+      position: absolute;
+      right: 0;
+      top: -15px;
+      border: none;
+      padding: 0;
+    }
+    .loginButton {
+      box-sizing: border-box;
+      height: 50px;
+      width: 400px;
+      font-size: 18px;
+      border-radius: 6px;
+      color: @body-background;
+      background-color: @btn-bg;
+      border: none;
+    }
+  }
+
+}

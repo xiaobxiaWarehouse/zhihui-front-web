@@ -1,0 +1,150 @@
+@import '~themes/vars';
+.card {
+  height: ~'calc(100vh - 80px - 100px)';
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  :global {
+    .ant-form-item {
+      margin-bottom: 0 !important;
+      height: 35px !important;
+    }
+  }
+}
+
+.tabsBox {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 13px;
+  display: flex;
+  padding: 0 28px;
+}
+
+.tabItem {
+  width: 25%;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 18px;
+  color: @font-color;
+  cursor: pointer;
+}
+
+.tabActiveItem {
+  width: 25%;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 18px;
+  color: #6a3906;
+  cursor: pointer;
+  background-color: #fccb1d;
+  border-color: transparent;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 16px 5px;
+  border: 1px solid @border-color;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.louceng {
+  font-size: 20px;
+  height: 75px;
+  color: #262626;
+}
+
+.louceng2 {
+  font-size: 20px;
+  height: 92px;
+  color: #262626;
+}
+
+.name {
+  font-size: 20px;
+  font-size: 16px;
+  color: #262626;
+  font-weight: bold;
+}
+
+.itemRightBox {
+  font-size: 18px;
+  color: #595959;
+  margin-bottom: 12px;
+}
+
+.itemRightBox2 {
+  font-size: 18px;
+  color: #595959;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.itemIcon {
+  width: 20px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.huliFilter {
+  :global {
+    .ant-form-item-label {
+      width: 51px;
+    }
+    .ant-form-item-control-wrapper {
+      width: ~'calc(100% - 63px)';
+    }
+
+    .ant-form-item {
+      width: 100%;
+    }
+
+    .ant-col-8:nth-child(2) {
+      .ant-form-item-label {
+        margin-left: 6px;
+      }
+    }
+
+    .ant-col-8:nth-child(3) {
+      .ant-form-item-label {
+        margin-left: 12px;
+      }
+    }
+  }
+}
+
+.searchFilter {
+  :global {
+    .ant-form-item {
+      width: 100%;
+    }
+
+    .ant-form-item-control-wrapper {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.deviceSelectFrom {
+  display: inline-block;
+  :global {
+    .ant-form-item {
+      margin-bottom: 0 !important;
+
+      .ant-form-item-control {
+        line-height: 35.9999px;
+      }
+    }
+  }
+}
